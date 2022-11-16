@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <div class="nav">
+    <div className="nav">
       <input type="checkbox" id="nav-check" />
-      <div class="nav-header">
-        <div class="nav-title">
+      <div className="nav-header">
+        <div className="nav-title">
           <strong>IVT</strong>
         </div>
       </div>
 
-      <div class="nav-links">
+      <div className="nav-links">
         <span>Name</span>
         <span>Log Out</span>
-        <a href="/">Sign Up</a>
+        <Link to="/register">Sign Up</Link>
         <Link to="/login">Log In</Link>
       </div>
     </div>

@@ -34,7 +34,7 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response));
+      console.log(JSON.stringify(response.data));
       setAuth({ user, pwd });
       setUser("");
       setPwd("");
@@ -59,9 +59,9 @@ const Login = () => {
         <section className="auth">
           <h1>You are logged in!</h1>
           <br />
-          <p>
-            <a href="/">Go to Dashboard</a>
-          </p>
+          <span>
+            <Link to="/inv">Go to My Dashboard</Link>
+          </span>
         </section>
       ) : (
         <div className="auth">
@@ -96,7 +96,7 @@ const Login = () => {
               <button>Login</button>
             </form>
             <span>
-              Don't have and account? <Link to="/register">Register</Link>
+              Don't have and account? <Link to="/register">Sign Up</Link>
             </span>
           </div>
         </div>
