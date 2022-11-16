@@ -1,0 +1,104 @@
+.add-product {
+    margin-bottom: 5rem;
+    .card {
+      width: 100%;
+      padding: 4rem;
+      background-color: white;
+      margin-top: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      .form-parent{
+        display: flex;
+        flex-direction: row;
+        gap: 48px;
+      }
+      .prod-details{
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+      }
+      .prod-details-2{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 24px;
+      }
+      label {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--color-dark);
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="file"],
+      input[type="email"],
+      select,
+      input[type="password"] {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 300;
+        padding: 1rem;
+        margin: 1rem auto;
+        width: 100%;
+        border: 1px solid #B4B4B4;
+        border-radius: 8px;
+        outline: none;
+      }
+      p{
+        font-size: 12px;
+      }
+    }
+    .group {
+      border: none;
+      padding: 0px;
+      box-shadow: none;
+    }
+  
+  
+  .image-preview {
+    width: 100%;
+    height: 100%;
+    max-height: 280px;
+    background: var(--dark-blue);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    // display: none;
+    transition: all 0.3s;
+  }
+  
+  .image-preview img {
+    width: 100%;
+  }
+  
+  .image-show {
+    display: block;
+  }
+  
+  .desc{
+    border-radius: 8px;
+  }
+  
+  .btnsaveprod{
+    display: flex;
+    justify-content: end;
+  }
+  }
+  
+  
+  @media screen and (max-width: 900px) {
+    .add-product {
+      form {
+        display: flex;
+        .form-parent{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  
+  }
