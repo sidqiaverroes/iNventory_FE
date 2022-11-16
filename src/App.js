@@ -5,6 +5,9 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Forgot from "./pages/auth/Forgot";
 import Reset from "./pages/auth/Reset";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Layout from "./components/layout/Layout";
+import Sidebar from "./components/sidebar/Sidebar";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -35,13 +38,50 @@ function App() {
         <Route path="/forgot" element={<Forgot />} />
         <Route path="/resetpassword/:resetToken" element={<Reset />} />
 
-        <Route path="/dashboard" />
-        <Route path="/add-product" />
-        <Route path="/product-detail/:id" />
-        <Route path="/edit-product/:id" />
-        <Route path="/profile" />
-        <Route path="/edit-profile" />
-        <Route path="/contact-us" />
+        <Route path="/dashboard" element={
+            <Sidebar>
+              <Layout>
+                <Dashboard />
+              </Layout>
+            </Sidebar>
+          }/>
+        <Route path="/add-product" element={
+            <Sidebar>
+              <Layout>
+              </Layout>
+            </Sidebar>
+          }/>
+        <Route path="/product-detail/:id" element={
+            <Sidebar>
+              <Layout>
+              </Layout>
+            </Sidebar>
+          }/>
+        <Route path="/edit-product/:id" element={
+            <Sidebar>
+              <Layout>
+              </Layout>
+            </Sidebar>
+          }/>
+        <Route path="/profile" element={
+            <Sidebar>
+              <Layout>
+              </Layout>
+            </Sidebar>
+          }/>
+        <Route path="/edit-profile" element={
+            <Sidebar>
+              <Layout>
+              </Layout>
+            </Sidebar>
+          }/>
+        <Route path="/contact-us" 
+        element={
+          <Sidebar>
+            <Layout>
+            </Layout>
+          </Sidebar>
+        }/>
       </Routes>
     </BrowserRouter>
   );

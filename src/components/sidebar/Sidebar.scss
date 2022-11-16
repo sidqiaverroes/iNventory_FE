@@ -1,0 +1,141 @@
+.layout {
+    display: flex;
+    height: 100vh;
+  }
+  main {
+    width: 100%;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100%;
+    flex-shrink: 0;
+    background-color: var(--dark-blue);
+    overflow: auto;
+    color: var(--color-white);
+    transition: all 0.5s;
+  }
+  
+  .top_section {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    // border-bottom: 2px solid #ccc;
+    transition: all 0.3s;
+    background-color: var(--dark-blue);
+    height: 70px;
+  }
+  .ivtlogo {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  .logo {
+    font-size: 30px;
+    color: var(--color-white);
+  }
+  .bars {
+    display: flex;
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--color-white);
+    transition: all 0.3s;
+  }
+  
+  .bars:hover {
+    color: var(--color-pink);
+  }
+  
+  .sidebar-item {
+    display: block;
+    // border-radius: 5px;
+    // border-bottom: 2px solid #ccc;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .sidebar-item:hover {
+    background-color: #08183a;
+  }
+  
+  .sidebar-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 8px;
+  }
+  
+  .sidebar-title:hover{
+    color: #5751EA;
+  }
+  
+  .sidebar-title span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    transition: all 0.3s;
+    font-size: 16px;
+  }
+  
+  .sidebar-title span .icon {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 1.5em;
+    font-size: 25px;
+  }
+  
+  .sidebar-title .arrow-icon {
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .sidebar-item.open > .sidebar-title .arrow-icon {
+    transform: rotate(90deg);
+  }
+  
+  .sidebar-content {
+    height: 0;
+    overflow: hidden;
+  }
+  .sidebar-item.open > .sidebar-content {
+    height: 100%;
+  }
+  
+  .s-child {
+    border-radius: 1px;
+    padding-left: 12px;
+    margin-bottom: 8px;
+  }
+  
+  a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .active {
+    color: var(--color-pink);
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .active::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-color: var(--color-pink);
+  }
+  
+  .sublink .sidebar-item .sidebar-title {
+    padding-left: 40px;
+  }
+  
