@@ -1,34 +1,49 @@
 .profile {
-    .card {
-      max-width: 700px;
+  .card {
+    max-width: 100%px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: white;
+    gap: 24px;
+    padding: 3rem;
+    img{
+      width: 350px;
+      height: 350px;
+      border-radius: 8px;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-data{
       display: flex;
-      justify-content: flex-start;
-  
-      padding: 1rem 0;
-  
-      span.profile-photo {
-        text-align: center;
-      }
-  
-      img {
-        width: 100%;
-        max-width: 350px;
-        padding-right: 1rem;
-        padding-left: 1rem;
-      }
-      span.profile-data {
-        margin: 0 1rem;
-      }
-      span.profile-data > * {
-        border-top: 1px solid #ccc;
-        padding: 5px 0;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 100%;
+      span{
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
       }
     }
-  }
-  
-  @media screen and (max-width: 600px) {
-    span.profile-photo {
-      margin: auto;
+
+    textarea, input{
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      max-width: 100%;
+      padding: 1rem;
+      outline: none;
     }
+
   }
-  
+}
+
+@media screen and (max-width: 800px) {
+  span.profile-photo {
+    margin: auto;
+  }
+  .card{
+    flex-direction: column;
+  }
+}
