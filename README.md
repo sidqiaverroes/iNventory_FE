@@ -69,21 +69,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## LINK GITHUB BE (BACKEND) : 
+## Link github BE (Backend) : 
 ```sh
 https://github.com/sidqiaverroes/iNventory_BE
    ``` 
-## LINK SLIDE PRESENTASI
+## Link Slide Presentasi :
  ```sh
    https://drive.google.com/drive/folders/1eXvxnTVU27m9j9rkaYk4-vHx65c4kn9t?usp=share_link
    ``` 
 
-## LINK WEB APLIKASI : 
+## Link Web App : 
 ```sh
    https://inventory-fe.vercel.app/
    ``` 
 
-## LINK PENILAIAN KELOMPOK
+## Link Penilaian Kelompok :
 ```sh
    https://docs.google.com/spreadsheets/d/1tMqtY5ZjAGyMaj7RTuwy_Bc1NXWZj_DXO3vyPC92bAQ/edit?usp=sharing
    ```
