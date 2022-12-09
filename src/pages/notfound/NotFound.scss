@@ -1,0 +1,20 @@
+.notFound{
+    background-image: linear-gradient(to right, #0D2350 , #1848B4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 24px;
+
+    .title{
+        font-size: 48px;
+        font-weight: 700;
+        color: white;
+    }
+    .error{
+        font-size: 60px;
+        font-weight: 700;
+        color: var(--color-pink);
+    }
+}

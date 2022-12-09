@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./productSummary.scss";
+import "./ProductSummary.scss";
 import { TbShoppingCartX } from "react-icons/tb";
 import { BiCategory, BiDollarCircle, BiCart } from "react-icons/bi";
 import InfoBox from "../../infoBox/InfoBox";
