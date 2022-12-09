@@ -1,72 +1,63 @@
-import React, { useEffect } from "react";
-import "./ProductSummary.scss";
-import { TbShoppingCartX } from "react-icons/tb";
-import { BiCategory, BiDollarCircle, BiCart } from "react-icons/bi";
-import InfoBox from "../../infoBox/InfoBox";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  CALC_CATEGORY,
-  CALC_OUTOFSTOCK,
-  CALC_STORE_VALUE,
-  selectCategory,
-  selectOutOfStock,
-  selectTotalStoreValue,
-} from "../../../redux/features/product/productSlice";
+.product-list {
+  color: #333;
+  margin-top: 32px;
+  .table {
+    padding: 5px;
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 12px;
 
-// Icons
-const earningIcon = <BiDollarCircle size={24} color="#fff" />;
-const productIcon = <BiCart size={24} color="#fff" />;
-const categoryIcon = <BiCategory size={24} color="#fff" />;
-const outOfStockIcon = <TbShoppingCartX size={24} color="#fff" />;
+    .search {
+      width: 100%;
+      max-width: 300px;
+    }
 
-// Format Amount
-export const formatNumbers = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 1.4rem;
 
-const ProductSummary = ({ products }) => {
-  const dispatch = useDispatch();
-  const totalStoreValue = useSelector(selectTotalStoreValue);
-  const outOfStock = useSelector(selectOutOfStock);
-  const category = useSelector(selectCategory);
+      thead {
+        // border-top: 2px solid var(--light-blue);
+        border-bottom: 2px solid var(--dark-blue);
+      }
 
-  useEffect(() => {
-    dispatch(CALC_STORE_VALUE(products));
-    dispatch(CALC_OUTOFSTOCK(products));
-    dispatch(CALC_CATEGORY(products));
-  }, [dispatch, products]);
+      th {
+        border: 0px solid #eee;
+      }
 
-  return (
-    <div className="product-summary">
-      <h3 className="--mt">Inventory Stats</h3>
-      <div className="info-summary">
-        <InfoBox
-          icon={productIcon}
-          title={"Total Items"}
-          count={products.length}
-          bgColor="card1"
-        />
-        <InfoBox
-          icon={earningIcon}
-          title={"Total Value"}
-          count={`Rp${formatNumbers(totalStoreValue.toFixed(2))}  `}
-          bgColor="card2"
-        />
-        <InfoBox
-          icon={outOfStockIcon}
-          title={"Out of Stock"}
-          count={outOfStock}
-          bgColor="card3"
-        />
-        <InfoBox
-          icon={categoryIcon}
-          title={"All Categories"}
-          count={category.length}
-          bgColor="card4"
-        />
-      </div>
-    </div>
-  );
-};
+      th,
+      td {
+        vertical-align: top;
+        text-align: left;
+        padding: 16px;
 
-export default ProductSummary;
+        &.icons {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 16px;
+          > * {
+            cursor: pointer;
+            vertical-align: middle;
+            align-self: center;
+          }
+        }
+      }
+
+      tr {
+        border-bottom: 1px solid #ccc;
+      }
+
+      tr:nth-child(even) {
+        background-color: #fff;
+      }
+      tbody {
+        tr:hover {
+          cursor: pointer;
+          background-color: rgb(232, 232, 232);
+        }
+      }
+    }
+  }
+}
