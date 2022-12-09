@@ -69,7 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## LINK GITHUB FE (FRONTEND) : 
+## LINK GITHUB BE (BACKEND) : 
 ```sh
 https://github.com/sidqiaverroes/iNventory_BE
    ``` 
