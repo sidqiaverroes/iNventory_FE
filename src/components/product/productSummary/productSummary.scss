@@ -1,31 +1,30 @@
 .product-summary {
-    width: 100%;
-    .info-summary {
-      display: flex;
-      flex-wrap:wrap;
-      gap: 24px;
-      padding-top: 4px;
-    }
+  width: 100%;
+  .info-summary {
+    display: flex;
+    flex-wrap:wrap;
+    gap: 24px;
+    padding-top: 4px;
   }
-  
-  .card {
-    border: 1px solid #ccc;
-    // border-bottom: 3px solid var(--light-blue);
-    padding: 5px;
-    background-color: #f5f6fa;
-  }
-  
-  .card1 {
-    background-color: var(--color-white);
-  }
-  .card2 {
-    background-color: var(--color-white);
-    overflow-x: scroll;
-  }
-  .card3 {
-    background-color: var(--color-white);
-  }
-  .card4 {
-    background-color: var(--color-white);
-  }
-  
+}
+
+.card {
+  border: 1px solid #ccc;
+  // border-bottom: 3px solid var(--light-blue);
+  padding: 5px;
+  background-color: #f5f6fa;
+}
+
+.card1 {
+  background-color: var(--color-white);
+}
+.card2 {
+  background-color: var(--color-white);
+  overflow-x: scroll;
+}
+.card3 {
+  background-color: var(--color-white);
+}
+.card4 {
+  background-color: var(--color-white);
+}
