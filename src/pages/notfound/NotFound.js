@@ -1,9 +1,12 @@
 import React from "react";
+import "./NotFound.scss";
 
 function NotFound() {
   return (
-    <div className="notfound">
-      <h1 className="notfond-title">Error: Page Not Found</h1>
+    <div className="notFound">
+      <span className="error">404</span>
+      <span className="title">Not Found</span>
+      {/* <Link to="/">Back to Home</Link> */}
     </div>
   );
 }

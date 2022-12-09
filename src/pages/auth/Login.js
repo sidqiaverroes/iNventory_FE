@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { loginUser, validateEmail } from "../../services/authService";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
 import Loader from "../../components/loader/Loader";
+import { logoutUser } from "../../services/authService";
 
 const initialState = {
   email: "",
@@ -54,12 +55,17 @@ const Login = () => {
     }
   };
 
+  const logout = async () => {
+    await logoutUser();
+    await dispatch(SET_LOGIN(false));
+  };
+
   return (
     <div className={`container ${styles.auth}`}>
       {isLoading && <Loader />}
       <Card>
         <div className={styles.form}>
-          <Link to="/">
+          <Link to="/" onClick={logout}>
             <span className={styles.backhome}>
               <BiArrowBack size={16} style={{ marginRight: "8px" }} />
               Home

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./auth.module.scss";
-import { AiOutlineMail } from "react-icons/ai";
 import Card from "../../components/card/Card";
 import { Link } from "react-router-dom";
 import { forgotPassword, validateEmail } from "../../services/authService";
 import { toast } from "react-toastify";
+import { BiArrowBack } from "react-icons/bi";
 
 const Forgot = () => {
   const [email, setEmail] = useState("");
@@ -31,9 +31,12 @@ const Forgot = () => {
     <div className={`container ${styles.auth}`}>
       <Card>
         <div className={styles.form}>
-          <div className="--flex-center">
-            <AiOutlineMail size={35} color="#999" />
-          </div>
+          <Link to="/">
+            <span className={styles.backhome}>
+              <BiArrowBack size={16} style={{ marginRight: "8px" }} />
+              Home
+            </span>
+          </Link>
           <h2>Forgot Password</h2>
 
           <form onSubmit={forgot}>
@@ -50,12 +53,9 @@ const Forgot = () => {
               Get Reset Email
             </button>
             <div className={styles.links}>
-              <p>
-                <Link to="/">- Home</Link>
-              </p>
-              <p>
-                <Link to="/login">- Login</Link>
-              </p>
+              <Link to="/login" className="back">
+                Back to Login
+              </Link>
             </div>
           </form>
         </div>
