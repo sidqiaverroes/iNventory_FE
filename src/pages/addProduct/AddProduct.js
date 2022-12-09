@@ -3,29 +3,30 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/Loader";
 import ProductForm from "../../components/product/productForm/ProductForm";
+import { toast } from "react-toastify";
 import {
   createProduct,
   selectIsLoading,
 } from "../../redux/features/product/productSlice";
 
-const initialState = {
-  name: "",
-  category: "",
-  quantity: "",
-  price: "",
-};
-
 const AddProduct = () => {
+  const initialState = {
+    name: "",
+    category: "",
+    quantity: "",
+    price: "",
+    desc: "",
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [product, setProduct] = useState(initialState);
   const [productImage, setProductImage] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
-  const [description, setDescription] = useState("");
 
   const isLoading = useSelector(selectIsLoading);
 
-  const { name, category, price, quantity } = product;
+  const { name, category, price, quantity, desc } = product;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,29 +38,52 @@ const AddProduct = () => {
     setImagePreview(URL.createObjectURL(e.target.files[0]));
   };
 
-  // const generateKSKU = (category) => {
-  //   const letter = category.slice(0, 3).toUpperCase();
-  //   const number = Date.now();
-  //   const sku = letter + "-" + number;
-  //   return sku;
-  // };
-
   const saveProduct = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", name);
-    // formData.append("sku", generateKSKU(category));
-    formData.append("category", category);
-    formData.append("quantity", Number(quantity));
-    formData.append("price", price);
-    formData.append("description", description);
-    formData.append("image", productImage);
+    if (!name || !category || !price || !quantity || !desc) {
+      return toast.error("All fields are required");
+    }
 
-    console.log(...formData);
+    //Handle Image Upload
+    let imageURL;
+    if (
+      productImage &&
+      (productImage.type === "image/jpeg" ||
+        productImage.type === "image/jpg" ||
+        productImage.type === "image/png")
+    ) {
+      const image = new FormData();
+      image.append("file", productImage);
+      image.append("cloud_name", "dyd6yggca");
+      image.append("upload_preset", "pawpatrol10");
 
-    await dispatch(createProduct(formData));
+      // First save image to cloudinary
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dyd6yggca/image/upload",
+        { method: "post", body: image }
+      );
+      const imgData = await response.json();
+      imageURL = imgData.url.toString();
+    }
 
-    navigate("/dashboard");
+    const newProduct = {
+      name: product.name,
+      category: product.category,
+      price: product.price,
+      quantity: product.quantity,
+      desc: product.desc,
+      image: imageURL,
+    };
+
+    console.log(newProduct);
+
+    try {
+      await dispatch(createProduct(newProduct));
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+      toast.error(error);
+    }
   };
 
   return (
@@ -68,10 +92,7 @@ const AddProduct = () => {
       <h3 className="--mt">Add New Product</h3>
       <ProductForm
         product={product}
-        productImage={productImage}
         imagePreview={imagePreview}
-        description={description}
-        setDescription={setDescription}
         handleInputChange={handleInputChange}
         handleImageChange={handleImageChange}
         saveProduct={saveProduct}
