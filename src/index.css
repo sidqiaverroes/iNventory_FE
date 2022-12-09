@@ -519,3 +519,10 @@ ul {
   color: white;
   height: 100%;
 }
+
+.prodImage{
+  height: 320px;
+  width: auto;
+  overflow: hidden;
+  object-fit: cover;
+}

@@ -44,16 +44,15 @@ const ProductDetail = () => {
         {isLoading && <SpinnerImg />}
         {product && (
           <div className="detail">
-            <Card cardClass="group">
-              {product?.image ? (
-                <img
-                  src={product.image.filePath}
-                  alt={product.image.fileName}
-                />
-              ) : (
-                <p>No image set for this product</p>
-              )}
-            </Card>
+            {product?.image ? (
+              <img
+                className="prodImage"
+                src={product.image}
+                alt="productimage"
+              />
+            ) : (
+              <p>No image set for this product</p>
+            )}
 
             <hr />
             <h4>{product.name}</h4>
@@ -75,7 +74,7 @@ const ProductDetail = () => {
             <hr />
             <div
               dangerouslySetInnerHTML={{
-                __html: DOMPurify.sanitize(product.description),
+                __html: DOMPurify.sanitize(product.desc),
               }}
             ></div>
             <hr />

@@ -7,10 +7,7 @@ import "./ProductForm.scss";
 
 const ProductForm = ({
   product,
-  productImage,
   imagePreview,
-  description,
-  setDescription,
   handleInputChange,
   handleImageChange,
   saveProduct,
@@ -86,12 +83,11 @@ const ProductForm = ({
                 <label style={{ marginBottom: "8px" }}>
                   Product Description
                 </label>
-                <ReactQuill
-                  theme="snow"
-                  value={description}
-                  onChange={setDescription}
-                  modules={ProductForm.modules}
-                  formats={ProductForm.formats}
+                <textarea
+                  type="text"
+                  name="desc"
+                  value={product?.desc}
+                  onChange={handleInputChange}
                 />
               </span>
             </div>
@@ -106,42 +102,5 @@ const ProductForm = ({
     </div>
   );
 };
-
-ProductForm.modules = {
-  toolbar: [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [{ align: [] }],
-    [{ color: [] }, { background: [] }],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["clean"],
-  ],
-};
-ProductForm.formats = [
-  "header",
-  "font",
-  "size",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "color",
-  "background",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "video",
-  "image",
-  "code-block",
-  "align",
-];
 
 export default ProductForm;

@@ -64,22 +64,21 @@ const EditProfile = () => {
         );
         const imgData = await response.json();
         imageURL = imgData.url.toString();
-        {
-          // Save Profile
-          const formData = {
-            name: profile.name,
-            phone: profile.phone,
-            bio: profile.bio,
-            photo: profileImage ? imageURL : profile.photo,
-          };
-
-          const data = await updateUser(formData);
-          console.log(data);
-          toast.success("User updated");
-          navigate("/profile");
-          setIsLoading(false);
-        }
       }
+
+      // Save Profile
+      const formData = {
+        name: profile.name,
+        phone: profile.phone,
+        bio: profile.bio,
+        photo: profileImage ? imageURL : profile.photo,
+      };
+
+      const data = await updateUser(formData);
+      console.log(data);
+      toast.success("User updated");
+      navigate("/profile");
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(false);

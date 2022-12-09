@@ -70,6 +70,7 @@ export const forgotPassword = async (userData) => {
       `${BACKEND_URL}/api/users/forgotpassword`,
       userData
     );
+    console.log(response);
     toast.success(response.data.message);
   } catch (error) {
     const message =
