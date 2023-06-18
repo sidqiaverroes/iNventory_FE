@@ -74,11 +74,10 @@ const Login = () => {
 
           <h2>Login</h2>
 
-          <form onSubmit={login}>
+          <form onSubmit={login} noValidate="true">
             <input
               type="email"
               placeholder="Email"
-              required
               name="email"
               value={email}
               onChange={handleInputChange}
@@ -86,7 +85,6 @@ const Login = () => {
             <input
               type="password"
               placeholder="Password"
-              required
               name="password"
               value={password}
               onChange={handleInputChange}
